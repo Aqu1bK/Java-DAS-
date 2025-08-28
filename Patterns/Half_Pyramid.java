@@ -8,7 +8,7 @@ public class Half_Pyramid
 		    for(int star=1; star<=line; star++){
 		        System.out.print(star);
 		    }
-		    
+
 		    System.out.println();
 		} 
 	}

@@ -1,4 +1,5 @@
 package Conditional_Statement;
+
 import java.util.*;
 
 public class oddOrEven {
