@@ -1,0 +1,45 @@
+### 🏛 Four Pillars of OOP
+
+1. **Encapsulation** 🛡️
+
+   * Bundling data (attributes) and methods (functions) into a single unit (class).
+   * Restricts direct access to data using access modifiers (like private, public, protected).
+   * Provides controlled access through getters and setters.
+   * Purpose: **Data security and information hiding**.
+
+---
+
+2. **Abstraction** 🎭
+
+   * Showing only the essential details and hiding unnecessary implementation.
+   * Focuses on *what an object does*, not *how it does it*.
+   * Implemented through abstract classes and interfaces in Java.
+   * Purpose: **Reduce complexity and increase flexibility**.
+
+---
+
+3. **Inheritance** 🧬
+
+   * Mechanism where one class (child/derived class) acquires properties and behaviors of another class (parent/base class).
+   * Promotes **code reusability** and establishes a **hierarchical relationship**.
+   * Purpose: **Avoid duplication and improve maintainability**.
+
+---
+
+4. **Polymorphism** 🎭➡️🎭
+
+   * Means “many forms.”
+   * Allows the same method or operation to behave differently depending on the context.
+   * Two types: **Compile-time polymorphism** (method overloading) and **Runtime polymorphism** (method overriding).
+   * Purpose: **Flexibility and dynamic behavior**.
+
+---
+
+✅ **In short**:
+
+* **Encapsulation** → Data hiding.
+* **Abstraction** → Implementation hiding.
+* **Inheritance** → Code reuse.
+* **Polymorphism** → Method flexibility.
+
+---
