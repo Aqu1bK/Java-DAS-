@@ -1,0 +1,95 @@
+In **Java**, an **interface** is like a **contract** or **blueprint** for a class.
+It defines **what a class must do** but not **how it does it**.
+
+---
+
+### ✅ Key Points about Interfaces
+
+1. Declared using the `interface` keyword.
+2. An interface can only contain:
+
+   * **Abstract methods** (methods without body) → before Java 8
+   * From **Java 8 onward**: can also have **default methods** (with body) and **static methods**.
+   * From **Java 9 onward**: can have **private methods** inside interface.
+3. A class uses the `implements` keyword to **implement an interface**.
+4. A class can implement **multiple interfaces** (solves the “multiple inheritance” problem in Java).
+5. Variables inside interfaces are **public, static, and final by default**.
+
+---
+
+### 🔹 Example: Simple Interface
+
+```java
+interface Vehicle {
+    void start();  // abstract method
+    void stop();   // abstract method
+}
+
+class Car implements Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car starts with a key");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Car stops with brakes");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v = new Car();  // reference of interface
+        v.start();  // Car starts with a key
+        v.stop();   // Car stops with brakes
+    }
+}
+```
+
+---
+
+### 🔹 Example: Default & Static Methods (Java 8+)
+
+```java
+interface MusicPlayer {
+    void play();
+
+    // default method
+    default void pause() {
+        System.out.println("Music paused");
+    }
+
+    // static method
+    static void stop() {
+        System.out.println("Music stopped");
+    }
+}
+
+class Spotify implements MusicPlayer {
+    @Override
+    public void play() {
+        System.out.println("Playing song from Spotify");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Spotify s = new Spotify();
+        s.play();   // Playing song from Spotify
+        s.pause();  // Music paused
+        MusicPlayer.stop();  // Music stopped
+    }
+}
+```
+
+---
+
+### ⚡ Why Use Interfaces?
+
+* Achieve **abstraction** (only define “what,” not “how”).
+* Achieve **multiple inheritance** (a class can implement multiple interfaces).
+* Helps in **loose coupling** → code depends on interfaces, not concrete classes.
+
+---
+
+👉 Do you want me to also create a **comparison table: Abstract Class vs Interface** (since that’s a common interview question)?

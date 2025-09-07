@@ -1,0 +1,207 @@
+Polymorphism is one of the **four pillars of Object-Oriented Programming (OOP)** (alongside **Encapsulation, Inheritance, and Abstraction**).
+
+The word comes from Greek: **"poly" = many, "morph" = forms** → *many forms*.
+
+In programming, \**polymorphism allows a single entity (like a function, method, or operator) to behave differently depending on the context*.
+
+---
+
+### ✅ Types of Polymorphism
+
+1. **Compile-time Polymorphism (Static Binding / Early Binding)**
+
+   * Decided at compile time.
+   * Achieved using:
+
+     * **Method Overloading** → multiple methods with the same name but different parameter lists.
+     * **Operator Overloading** (in some languages like C++) → same operator (`+`, `*`) used for different data types.
+
+   Example (Java - method overloading):
+
+   ```java
+   class Calculator {
+       int add(int a, int b) {
+           return a + b;
+       }
+       double add(double a, double b) {
+           return a + b;
+       }
+   }
+   ```
+
+   Here, `add()` has **many forms** depending on parameter types.
+
+---
+
+2. **Runtime Polymorphism (Dynamic Binding / Late Binding)**
+
+   * Decided at runtime.
+   * Achieved using **Method Overriding** → when a subclass provides its own implementation of a method defined in its parent class.
+   * Requires **inheritance** and **upcasting**.
+
+   Example (Java - method overriding):
+
+   ```java
+   class Animal {
+       void sound() {
+           System.out.println("Animal makes a sound");
+       }
+   }
+
+   class Dog extends Animal {
+       void sound() {
+           System.out.println("Dog barks");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Animal a = new Dog(); // upcasting
+           a.sound(); // Output: Dog barks
+       }
+   }
+   ```
+
+   Even though the reference is of type `Animal`, the actual method called depends on the **object type at runtime**.
+
+---
+
+### 🔑 In short:
+
+* **Polymorphism** = one interface, many implementations.
+* It makes code more **flexible, reusable, and maintainable**.
+
+---
+
+👉 Do you want me to also explain **real-life examples** of polymorphism (like in banking, shapes, etc.) to make it more intuitive?
+
+
+Method Overloading
+
+**Method Overloading** is a form of **compile-time polymorphism** in Object-Oriented Programming.
+
+It means:
+➡️ **Same method name**
+➡️ **Different parameter list** (number of parameters, type of parameters, or order of parameters)
+➡️ Decided at **compile time** which method to call.
+
+---
+
+### ✅ Rules of Method Overloading
+
+1. Must have **same method name**.
+2. Must differ in **parameter list**:
+
+   * Number of parameters
+   * Type of parameters
+   * Order of parameters
+3. **Return type alone does NOT differentiate** methods. (Changing only return type will cause a compile error).
+
+---
+
+### 🔹 Example in Java
+
+```java
+class MathOperations {
+    // Method with 2 int parameters
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method with 3 int parameters
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method with double parameters
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MathOperations obj = new MathOperations();
+        
+        System.out.println(obj.add(5, 10));        // calls add(int, int)
+        System.out.println(obj.add(5, 10, 15));    // calls add(int, int, int)
+        System.out.println(obj.add(5.5, 10.5));    // calls add(double, double)
+    }
+}
+```
+
+---
+
+### ⚡ Key Point
+
+* Overloading increases **readability and reusability** (same logical operation but different input types).
+* It is **not** related to inheritance, unlike **method overriding**.
+
+---
+
+👉 Do you want me to also explain the **difference between method overloading and method overriding** (side-by-side comparison)?
+
+
+Method Overriding 
+
+**Method Overriding** is a form of **runtime polymorphism** in OOP.
+
+It happens when:
+➡️ A **subclass** (child class) provides a **specific implementation** of a method that is already defined in its **superclass** (parent class).
+➡️ The **method name, parameters, and return type must be the same**.
+➡️ The call is resolved **at runtime**, depending on the object being referred to.
+
+---
+
+### ✅ Rules of Method Overriding
+
+1. Must be in **two classes** with inheritance.
+2. Method in the child class must have:
+
+   * **Same name**
+   * **Same parameter list**
+   * **Same return type (or covariant return type)**
+3. The method in the child class should have an **equal or more accessible modifier** (e.g., can’t reduce `public` to `private`).
+4. The overridden method cannot be `static`, `final`, or `private` (because those cannot be overridden).
+
+---
+
+### 🔹 Example in Java
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {   // overriding the parent class method
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog();  // upcasting
+        a.sound();  // Output: Dog barks (runtime decision)
+    }
+}
+```
+
+Here:
+
+* `sound()` is **overridden** in the `Dog` class.
+* Even though the reference type is `Animal`, the actual object is `Dog`, so the **child class method executes at runtime**.
+
+---
+
+### ⚡ Key Difference vs Method Overloading
+
+* **Overloading** → Same class, compile-time decision.
+* **Overriding** → Different classes (parent-child), runtime decision.
+
+---
+
+👉 Do you want me to make you a **side-by-side comparison table of Overloading vs Overriding** for quick revision?

@@ -1,0 +1,136 @@
+### ✅ Definition
+
+In Java, the `static` keyword means **the member belongs to the class, not to a specific object**.
+                                           OR
+Static keyword in java is used to share the same variable or method of a given objects of a class.
+
+-Properties
+-functions
+-Blocks
+-Nested Classes
+
+* Without `static` → each object gets its own copy.
+* With `static` → only **one copy** is shared across all objects.
+
+---
+
+### 🔹 Where can we use `static`?
+
+1. **Static Variables (Class Variables)**
+
+   * A variable declared as `static` is shared by **all objects** of the class.
+   * Memory is allocated only **once** (at class loading).
+
+   Example:
+
+   ```java
+   class Counter {
+       static int count = 0;  // shared among all objects
+
+       Counter() {
+           count++;
+           System.out.println("Count: " + count);
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Counter c1 = new Counter(); // Count: 1
+           Counter c2 = new Counter(); // Count: 2
+           Counter c3 = new Counter(); // Count: 3
+       }
+   }
+   ```
+
+---
+
+2. **Static Methods**
+
+   * Belong to the class, not objects.
+   * Can be called **without creating an object**.
+   * Can only access:
+
+     * Other **static variables**
+     * Other **static methods**
+   * Cannot access **instance (non-static) variables/methods** directly.
+
+   Example:
+
+   ```java
+   class MathUtil {
+       static int square(int x) {
+           return x * x;
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           System.out.println(MathUtil.square(5)); // 25
+       }
+   }
+   ```
+
+---
+
+3. **Static Blocks**
+
+   * Used to initialize static variables.
+   * Executes **only once** when the class is loaded into memory.
+
+   Example:
+
+   ```java
+   class Demo {
+       static int value;
+       static {
+           value = 100;
+           System.out.println("Static block executed");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           System.out.println(Demo.value);  // Static block executed, then prints 100
+       }
+   }
+   ```
+
+---
+
+4. **Static Classes (Nested classes only)**
+
+   * You can declare a class as `static` **only if it’s a nested class** (inside another class).
+   * Useful when the nested class doesn’t need a reference to the outer class.
+
+   Example:
+
+   ```java
+   class Outer {
+       static class Inner {
+           void display() {
+               System.out.println("Static nested class");
+           }
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Outer.Inner obj = new Outer.Inner();
+           obj.display();
+       }
+   }
+   ```
+
+---
+
+### ⚡ Key Points
+
+* `static` = belongs to the **class**, not object.
+* **Static variable** → one copy shared across all objects.
+* **Static method** → can be called without object.
+* **Static block** → runs once when class is loaded.
+* **Static nested class** → nested class that doesn’t depend on outer class object.
+
+---
+
+👉 Do you want me to also explain the **difference between static and non-static (instance) members** in a table format for easy revision?

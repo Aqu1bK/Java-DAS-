@@ -1,0 +1,106 @@
+**Abstraction** is one of the **four pillars of OOP** (with Encapsulation, Inheritance, and Polymorphism).
+
+---
+
+### ✅ Definition
+
+**Abstraction** is the process of **hiding implementation details** and showing only the **essential features** of an object.
+
+➡️ It focuses on **what an object does**, not **how it does it**.
+➡️ Helps reduce complexity and makes code easier to use.
+
+---
+
+### 🔹 Real-life Example
+
+* When you **drive a car**, you just use:
+
+  * Steering wheel
+  * Accelerator
+  * Brake
+
+You **don’t need to know** how the engine, gearbox, or fuel injection system works.
+That’s **abstraction** → showing only the necessary functionality, hiding the details.
+
+---
+
+### 🔹 Abstraction in Java
+
+In Java, abstraction can be achieved in **two ways**:
+
+1. **Abstract Classes** (0–100% abstraction)
+
+   * Declared using `abstract` keyword.
+   * Can have **abstract methods** (without implementation) and **concrete methods** (with implementation).
+
+   Example:
+
+   ```java
+   abstract class Animal {
+       abstract void sound(); // abstract method (no body)
+       
+       void sleep() {         // concrete method
+           System.out.println("Sleeping...");
+       }
+   }
+
+   class Dog extends Animal {
+       @Override
+       void sound() {
+           System.out.println("Dog barks");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Animal a = new Dog();
+           a.sound();  // Dog barks
+           a.sleep();  // Sleeping...
+       }
+   }
+   ```
+
+2. **Interfaces** (100% abstraction before Java 8; now can have default & static methods too)
+
+   * All methods are **abstract by default** (before Java 8).
+   * A class **implements** an interface.
+
+   Example:
+
+   ```java
+   interface Vehicle {
+       void start();
+   }
+
+   class Car implements Vehicle {
+       public void start() {
+           System.out.println("Car starts with a key");
+       }
+   }
+
+   public class Main {
+       public static void main(String[] args) {
+           Vehicle v = new Car();
+           v.start();  // Car starts with a key
+       }
+   }
+   ```
+
+---
+
+### ⚡ Key Points
+
+* **Abstraction = Hiding implementation, exposing functionality.**
+* Achieved using:
+
+  * **Abstract classes**
+  * **Interfaces**
+* Benefits:
+
+  * Reduces complexity
+  * Increases reusability
+  * Improves security (users only see what’s necessary)
+
+---
+
+👉 Do you want me to also give you a **difference table: Abstraction vs Encapsulation** (since people often confuse them)?
