@@ -1,5 +1,8 @@
 // \17.OOPs\Getters_And_Setters.java
 
+// Get: to return the value
+// Set: to modify the value
+
 public class Getters_And_Setters {
    public static void main(String args[]){
         Pen p1 = new Pen(); //created a pen object called p1
@@ -20,7 +23,7 @@ class Pen {
     private int tip;
 
     String getColor(){
-        return this.color;
+        return this.color; //In Java, the this keyword is a reference to the current object of the class.
     }
 
     int getTip(){
