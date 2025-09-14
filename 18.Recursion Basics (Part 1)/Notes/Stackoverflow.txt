@@ -1,0 +1,51 @@
+In **DSA and programming**, **Stack Overflow** is an **error that happens when the call stack memory is completely used up**.
+
+---
+
+### 🔹 What is the Call Stack?
+
+* The **call stack** is a special memory area where a program keeps track of function calls (who called whom, local variables, return addresses, etc.).
+* Each function call adds a **stack frame** to the stack.
+* When the function returns, its frame is removed (stack unwinds).
+
+---
+
+### 🔹 What is Stack Overflow?
+
+* If a program **keeps calling functions without stopping** (or uses too much stack memory), the stack becomes full.
+* When this happens, the program throws a **StackOverflow error** (or segmentation fault in some languages).
+
+---
+
+### 🔹 Common Cause: Infinite Recursion
+
+Example in Java:
+
+```java
+public class Main {
+    public static void recurse() {
+        recurse(); // No base case → infinite recursion
+    }
+
+    public static void main(String[] args) {
+        recurse();
+    }
+}
+```
+
+⚠️ This will cause a **`StackOverflowError`**, because the function never reaches a base case.
+
+---
+
+### 🔹 Real-World Analogy
+
+Imagine stacking plates:
+
+* Each function call = putting a plate on the stack.
+* Returning = removing a plate.
+* If you keep adding plates **without removing any**, the stack will eventually topple = **stack overflow**.
+
+---
+
+✅ In short:
+**Stack Overflow happens when there are too many nested function calls (often due to missing/incorrect base cases in recursion).**

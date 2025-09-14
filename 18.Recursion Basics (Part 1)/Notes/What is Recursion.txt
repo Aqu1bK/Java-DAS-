@@ -1,0 +1,110 @@
+Recursion in **DSA (Data Structures and Algorithms)** is a **problem-solving technique** where a function calls itself directly or indirectly to solve smaller instances of the same problem, until it reaches a base case (a condition where the recursion stops).
+
+It’s like breaking a big problem into smaller, easier subproblems of the same type.
+
+---
+
+### Key Components of Recursion:
+
+1. **Base Case**
+
+   * The condition under which the recursive calls stop.
+   * Prevents infinite recursion.
+   * Example: if `n == 0`, return 1.
+
+2. **Recursive Case**
+
+   * The part where the function calls itself with smaller input.
+   * Example: `factorial(n) = n * factorial(n-1)`.
+
+---
+
+### Example 1: Factorial
+
+Factorial of a number `n! = n × (n-1) × (n-2) ... × 1`.
+
+```java
+int factorial(int n) {
+    if (n == 0) return 1;   // Base case
+    return n * factorial(n - 1);  // Recursive case
+}
+```
+
+---
+
+### Example 2: Fibonacci Sequence
+
+`F(n) = F(n-1) + F(n-2)` with `F(0)=0, F(1)=1`.
+
+```java
+int fibonacci(int n) {
+    if (n == 0) return 0;  // Base case 1
+    if (n == 1) return 1;  // Base case 2
+    return fibonacci(n-1) + fibonacci(n-2); // Recursive case
+}
+```
+
+---
+
+### Where Recursion is Used in DSA:
+
+* **Tree Traversals** (inorder, preorder, postorder)
+* **Graph Traversals** (DFS)
+* **Divide and Conquer Algorithms** (Merge Sort, Quick Sort, Binary Search)
+* **Dynamic Programming** (solving subproblems recursively + memoization)
+* **Backtracking** (N-Queens, Sudoku Solver, Maze problems)
+
+---
+
+call stack diagram for recursion 
+
+example of **factorial(3)**:
+
+---
+
+### Function: `factorial(3)`
+
+```text
+factorial(3)
+ → 3 * factorial(2)
+       → 2 * factorial(1)
+             → 1 * factorial(0)
+                   → return 1  (Base Case)
+             ← returns 1
+       ← 2 * 1 = 2
+ ← 3 * 2 = 6
+```
+
+---
+
+### Call Stack Representation
+
+(Top of stack is at the bottom ↓)
+
+```text
+---------------------------------
+| factorial(3)                  |
+---------------------------------
+| factorial(2)                  |
+---------------------------------
+| factorial(1)                  |
+---------------------------------
+| factorial(0)  → returns 1     |
+---------------------------------
+```
+
+When `factorial(0)` returns, the stack **unwinds**:
+
+```text
+---------------------------------
+| factorial(3)   waiting result |
+---------------------------------
+| factorial(2)   waiting result |
+---------------------------------
+| factorial(1)   waiting result |
+---------------------------------
+```
+
+Then each function gets its result and passes it up until the final answer = **6**.
+
+---

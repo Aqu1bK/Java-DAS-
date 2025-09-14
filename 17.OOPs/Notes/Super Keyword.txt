@@ -1,0 +1,116 @@
+The **`super` keyword** in Java is used inside a **child (subclass)** to refer to its **parent (superclass)**.
+                                                    OR
+Super keyword is used to refer immediate parent class object.
+
+- to access parent's Properties
+- to access parent's functions
+- to access parent constructor 
+---
+
+### ✅ Uses of `super` keyword
+
+There are **three main uses**:
+
+1. **Access parent class variables** (when child and parent have same variable names).
+2. **Call parent class methods** (when child overrides the method).
+3. **Call parent class constructor** (to initialize parent fields).
+
+---
+
+### 🔹 1. Accessing Parent Class Variables
+
+```java
+class Animal {
+    String color = "white";
+}
+
+class Dog extends Animal {
+    String color = "black";
+
+    void printColor() {
+        System.out.println(color);       // black (child’s variable)
+        System.out.println(super.color); // white (parent’s variable)
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.printColor();
+    }
+}
+```
+
+---
+
+### 🔹 2. Calling Parent Class Methods
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    void show() {
+        sound();        // Dog's method
+        super.sound();  // Parent’s method
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.show();
+    }
+}
+```
+
+---
+
+### 🔹 3. Calling Parent Class Constructor
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor called");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // calls parent class constructor (must be first statement)
+        System.out.println("Dog constructor called");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+    }
+}
+```
+
+**Output:**
+
+```
+Animal constructor called
+Dog constructor called
+```
+
+---
+
+### ⚡ Key Points
+
+* `super` always refers to the **immediate parent class**.
+* If you don’t call `super()` explicitly, Java inserts it automatically (except when parent doesn’t have a no-arg constructor).
+* Can be used only inside **child class constructors or methods**.
+
+---
+
+👉 Do you want me to also explain the **difference between `this` and `super`** (since they are often confused)?
