@@ -1,0 +1,24 @@
+public class Find_Subset_code {
+    public static void findSubsets(String str, String ans, int i){
+        // base case
+        if(i == str.length()){
+            if(ans.length() == 0){
+                System.out.println("null");
+            } else {
+                System.out.println(ans);
+            }
+            return;
+        }
+
+        // Yes choice → include char at i
+        findSubsets(str, ans + str.charAt(i), i + 1);
+
+        // No choice → skip char at i
+        findSubsets(str, ans, i + 1);
+    }
+
+    public static void main(String args[]){
+        String str = "abc";
+        findSubsets(str, "", 0); // pass empty string, not " "
+    }
+}
