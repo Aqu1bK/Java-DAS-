@@ -10,6 +10,7 @@
 public class Search_and_roated_Array_Search {
 
     public static int search(int arr[], int tar, int si, int ei) {
+        //base case
         if (si > ei) {
             return -1;
         }

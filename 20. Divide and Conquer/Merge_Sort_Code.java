@@ -47,7 +47,7 @@ public class Merge_Sort_Code {
         }
 
         //copy temp to original array
-        for(k = 0, i=si; k < temp.length; k++, i++){
+        for(k=0, i=si; k < temp.length; k++, i++){
             arr[i] = temp[k];
         }
     }
