@@ -29,6 +29,5 @@ public class Implement_Queue_using_Deque {
         System.out.println(q.remove());
         System.out.println(q.remove());
         System.out.println(q.remove());
-    }
-    
+    } 
 }
